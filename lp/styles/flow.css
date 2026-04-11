@@ -124,7 +124,7 @@
   .lp-flow__steps {
     flex-direction: column;
     align-items: stretch;
-    gap: 32px;
+    gap: 0;
     max-width: 520px;
     margin: 0 auto;
   }
@@ -136,40 +136,83 @@
     column-gap: 16px;
     align-items: center;
     text-align: left;
+    padding-bottom: 20px;
   }
 
+  /* デスクトップ用の横線コネクタは非表示 */
   .lp-flow__step::after {
     display: none;
   }
 
-  .lp-flow__icon-wrap {
+  /* STEP1: 三角なし（従来どおり 3 行グリッド） */
+  .lp-flow__step:first-child .lp-flow__icon-wrap {
     margin-inline: 0;
     grid-column: 1;
     grid-row: 1 / span 3;
   }
 
-  .lp-flow__step-label {
+  .lp-flow__step:first-child .lp-flow__step-label {
     margin-top: 0;
     grid-column: 2;
     grid-row: 1;
     justify-self: start;
   }
 
-  .lp-flow__step-title {
+  .lp-flow__step:first-child .lp-flow__step-title {
     margin-top: 6px;
     grid-column: 2;
     grid-row: 2;
   }
 
-  .lp-flow__step-text {
+  .lp-flow__step:first-child .lp-flow__step-text {
     margin-top: 8px;
     padding-inline: 0;
     grid-column: 2;
     grid-row: 3;
   }
 
+  /* STEP2〜: 上に区切り線 → その下に三角 → その下にコンテンツ */
   .lp-flow__step + .lp-flow__step {
-    padding-top: 24px;
+    padding-top: 20px;
     border-top: 1px solid var(--color-border);
+  }
+
+  .lp-flow__step + .lp-flow__step::before {
+    content: "";
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+    width: 0;
+    height: 0;
+    margin-bottom: 20px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid var(--color-accent);
+  }
+
+  .lp-flow__step + .lp-flow__step .lp-flow__icon-wrap {
+    margin-inline: 0;
+    grid-column: 1;
+    grid-row: 2 / span 3;
+  }
+
+  .lp-flow__step + .lp-flow__step .lp-flow__step-label {
+    margin-top: 0;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .lp-flow__step + .lp-flow__step .lp-flow__step-title {
+    margin-top: 6px;
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .lp-flow__step + .lp-flow__step .lp-flow__step-text {
+    margin-top: 8px;
+    padding-inline: 0;
+    grid-column: 2;
+    grid-row: 4;
   }
 }

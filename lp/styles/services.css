@@ -95,4 +95,35 @@
   .lp-service-card--tall {
     min-height: 0;
   }
+
+  /* バッジ列 | 見出し＋本文列の2カラム */
+  .lp-service-card {
+    padding: 24px;
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 20px;
+    row-gap: 0;
+    align-items: center;
+    text-align: left;
+  }
+
+  .lp-service-card .lp-badge-circle {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-inline: 0;
+    align-self: center;
+  }
+
+  .lp-service-card__title {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .lp-service-card__text {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 8px;
+  }
 }

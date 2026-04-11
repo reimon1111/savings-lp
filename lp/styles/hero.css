@@ -226,6 +226,10 @@
 @media (max-width: 960px) {
   .lp-hero__grid {
     grid-template-columns: 1fr;
+    justify-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     text-align: center;
   }
 
@@ -241,6 +245,10 @@
 
   .lp-hero__visual {
     order: 2;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   .lp-hero__dots {
@@ -262,9 +270,13 @@
     margin-top: 0px;
   }
 
+  /* 92vw は親の padding（gutter）より広くなり、ブロックが右に寄って見えるため幅は 100% 基準 */
   .lp-hero__slider {
-    width: min(560px, 92vw);
+    width: 100%;
+    max-width: min(560px, 100%);
     height: min(420px, 72vw);
+    margin-inline: auto;
+    box-sizing: border-box;
   }
 
   .lp-hero__arrow {

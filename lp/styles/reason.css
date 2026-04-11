@@ -35,6 +35,10 @@
   color: var(--color-text);
 }
 
+.lp-reason__copy--mobile {
+  display: none;
+}
+
 .lp-reason__visual {
   display: flex;
   justify-content: flex-end;
@@ -73,5 +77,13 @@
 
   .lp-reason__visual {
     justify-content: center;
+  }
+
+  .lp-reason__copy--desktop {
+    display: none;
+  }
+
+  .lp-reason__copy--mobile {
+    display: flex;
   }
 }
