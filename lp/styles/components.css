@@ -1,0 +1,96 @@
+/* ボタン */
+.lp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  font-weight: 500;
+  transition: opacity 0.2s var(--ease-out), transform 0.15s var(--ease-out);
+}
+
+.lp-btn:hover {
+  opacity: 0.92;
+}
+
+.lp-btn:active {
+  transform: translateY(1px);
+}
+
+.lp-btn--header {
+  min-height: 42.5px;
+  padding: 0 24px;
+  border-radius: var(--radius-header-btn);
+  background: var(--color-btn-primary);
+  color: var(--color-white);
+  font-size: 15px;
+  line-height: 22.5px;
+  letter-spacing: -0.2344px;
+  box-shadow: none;
+}
+
+.lp-btn--hero {
+  min-height: 65.5px;
+  padding: 0 32px;
+  border-radius: var(--radius-hero-btn);
+  background: var(--color-btn-primary);
+  color: var(--color-white);
+  font-size: 17px;
+  line-height: 25.5px;
+  letter-spacing: -0.4316px;
+  box-shadow: var(--shadow-btn);
+}
+
+.lp-btn--cta {
+  min-height: 65.5px;
+  padding: 0 40px;
+  border-radius: var(--radius-hero-btn);
+  background: var(--color-btn-primary);
+  color: var(--color-white);
+  font-size: 17px;
+  line-height: 25.5px;
+  letter-spacing: -0.4316px;
+  box-shadow: var(--shadow-btn);
+}
+
+.lp-btn--cta .lp-btn__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.lp-btn--form {
+  width: 100%;
+  min-height: 65.5px;
+  border-radius: var(--radius-hero-btn);
+  background: var(--color-btn-form);
+  color: var(--color-white);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 25.5px;
+  letter-spacing: -0.4316px;
+  box-shadow: var(--shadow-btn);
+}
+
+/* サービス・フローカード共通 */
+.lp-card-soft {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-service-card);
+}
+
+.lp-badge-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: var(--color-icon-tint);
+}
+
+.lp-badge-circle img {
+  width: 40px;
+  height: 40px;
+}

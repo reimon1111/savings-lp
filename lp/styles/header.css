@@ -1,0 +1,69 @@
+.lp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background: var(--color-white-95);
+  border-bottom: 1px solid var(--color-header-border);
+  backdrop-filter: blur(8px);
+}
+
+.lp-header__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  height: calc(var(--header-height) - 1px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lp-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: -0.65px;
+  color: var(--color-navy);
+}
+
+.lp-header__logo {
+  display: block;
+  max-height: 36px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.lp-header__brand--has-logo .lp-header__brand-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.lp-header__brand:not(.lp-header__brand--has-logo) .lp-header__logo[hidden] {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .lp-header__brand {
+    font-size: 17px;
+    letter-spacing: -0.4px;
+  }
+
+  .lp-btn--header {
+    padding: 0 16px;
+    font-size: 14px;
+  }
+}

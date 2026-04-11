@@ -1,0 +1,133 @@
+.lp-faq {
+  position: relative;
+  overflow: clip;
+  padding-block: 160px 120px;
+  background: linear-gradient(
+    rgb(245, 243, 239) 0%,
+    rgb(248, 246, 242) 50%,
+    rgb(245, 243, 239) 100%
+  );
+}
+
+.lp-faq__bloom {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: 80px;
+  top: 80px;
+  border-radius: 50%;
+  filter: blur(64px);
+  opacity: 0.45;
+  background: rgb(255, 229, 208);
+  pointer-events: none;
+}
+
+.lp-faq__inner {
+  position: relative;
+  max-width: 896px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.lp-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lp-faq__item {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-faq);
+  box-shadow: var(--shadow-card-sm);
+  overflow: hidden;
+}
+
+.lp-faq__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 32px;
+  min-height: 73.5px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 25.5px;
+  letter-spacing: -0.4316px;
+  color: var(--color-navy);
+}
+
+.lp-faq__icon {
+  flex-shrink: 0;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.lp-faq__item.is-open .lp-faq__icon {
+  transform: rotate(45deg);
+}
+
+.lp-faq__panel {
+  display: none;
+  padding: 0 32px 24px;
+}
+
+.lp-faq__item.is-open .lp-faq__panel {
+  display: block;
+}
+
+.lp-faq__answer {
+  font-size: 15px;
+  line-height: 28px;
+  letter-spacing: -0.2344px;
+  color: var(--color-text);
+}
+
+.lp-faq__answer a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.lp-faq__empty {
+  margin: 0;
+  padding: 24px 32px;
+  font-size: 15px;
+  line-height: 28px;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-faq);
+  box-shadow: var(--shadow-card-sm);
+}
+
+@media (max-width: 640px) {
+  .lp-faq__empty {
+    padding: 20px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .lp-faq {
+    padding-block: 100px 72px;
+  }
+
+  .lp-faq__inner {
+    gap: 48px;
+  }
+
+  .lp-faq__trigger {
+    padding: 20px 20px;
+    font-size: 16px;
+  }
+
+  .lp-faq__panel {
+    padding: 0 20px 20px;
+  }
+}

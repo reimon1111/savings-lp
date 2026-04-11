@@ -1,0 +1,43 @@
+/* Figma node 7:407 準拠のデザイントークン */
+:root {
+  --color-navy: #1f2a44;
+  --color-accent: #6ba292;
+  --color-btn-primary: #5a8f7f;
+  --color-btn-form: #7fae9f;
+  --color-text: #333333;
+  --color-text-muted: #666666;
+  --color-text-soft: #999999;
+  --color-border: #eaeaea;
+  --color-border-input: #dddddd;
+  --color-icon-tint: #e8f2ef;
+  --color-header-border: #f3f4f6;
+  --color-white: #ffffff;
+  --color-white-95: rgba(255, 255, 255, 0.95);
+
+  --font-sans: "Inter", "Noto Sans JP", system-ui, sans-serif;
+
+  --shadow-btn: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-card-lg: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --shadow-card-md: 0 12px 35px rgba(0, 0, 0, 0.05);
+  --shadow-card-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-hero-img: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-flow-circle: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-cta-block: 0 12px 40px rgba(0, 0, 0, 0.05);
+
+  --radius-hero-btn: 16px;
+  --radius-card: 24px;
+  --radius-profile-card: 40px;
+  --radius-cta-inner: 32px;
+  --radius-form-card: 32px;
+  --radius-service-card: 16px;
+  --radius-input: 14px;
+  --radius-header-btn: 10px;
+  --radius-faq: 20px;
+
+  --container-max: 1164px;
+  --gutter: 24px;
+  --content-inner: 1116px;
+  --header-height: 83.5px;
+
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+}

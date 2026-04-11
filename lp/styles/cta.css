@@ -1,0 +1,67 @@
+.lp-cta {
+  padding-block: 160px 120px;
+  background: linear-gradient(
+    rgb(255, 255, 255) 0%,
+    rgb(254, 253, 253) 25%,
+    rgb(253, 252, 251) 50%,
+    rgb(254, 253, 253) 75%,
+    rgb(255, 255, 255) 100%
+  );
+}
+
+.lp-cta__panel {
+  max-width: 896px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.lp-cta__surface {
+  border-radius: var(--radius-cta-inner);
+  box-shadow: var(--shadow-cta-block);
+  padding: 64px 56px 56px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background: linear-gradient(
+    155.608deg,
+    rgb(245, 243, 239) 0%,
+    rgb(248, 246, 242) 50%,
+    rgb(232, 242, 239) 100%
+  );
+}
+
+.lp-cta__title {
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: 0.0862px;
+  color: var(--color-navy);
+}
+
+.lp-cta__text {
+  font-size: 16px;
+  line-height: 30.4px;
+  letter-spacing: -0.3125px;
+  color: var(--color-text);
+}
+
+.lp-cta__text p + p {
+  margin-top: 4px;
+}
+
+.lp-cta__actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .lp-cta {
+    padding-block: 100px 80px;
+  }
+
+  .lp-cta__surface {
+    padding: 40px 24px 36px;
+  }
+}

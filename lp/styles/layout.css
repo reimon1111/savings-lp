@@ -1,0 +1,49 @@
+.lp-page {
+  min-width: 320px;
+}
+
+.lp-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.lp-section-title {
+  text-align: center;
+}
+
+.lp-section-title__heading {
+  font-size: clamp(26px, 4vw, 32px);
+  line-height: 1.5;
+  letter-spacing: 0.0862px;
+  font-weight: 600;
+}
+
+.lp-section-title__rule {
+  width: 40px;
+  height: 2px;
+  background: var(--color-navy);
+  margin: 16px auto 0;
+}
+
+.lp-section-title__lead {
+  margin-top: 26px;
+  font-size: clamp(15px, 2vw, 16px);
+  line-height: 24px;
+  letter-spacing: -0.3125px;
+  color: var(--color-text);
+}
+
+.lp-section-title--left {
+  text-align: left;
+}
+
+.lp-section-title--left .lp-section-title__rule {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.lp-section-title--left .lp-section-title__lead {
+  text-align: left;
+}

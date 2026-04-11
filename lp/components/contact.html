@@ -1,0 +1,38 @@
+<section class="lp-contact" id="contact" aria-labelledby="contact-title">
+  <div class="lp-contact__wrap">
+    <div class="lp-contact__card">
+      <header class="lp-contact__intro">
+        <h2 id="contact-title" class="lp-contact__title">まずはお気軽にご相談ください</h2>
+        <p class="lp-contact__lead">ご相談・お見積りは無料です。無理な営業は一切いたしません。</p>
+      </header>
+      <form class="lp-form" id="lp-contact-form" action="#" method="post" novalidate>
+        <!-- 送信先メール（microCMS の HP情報で上書き。外部送信サービス連携時の参照用） -->
+        <input type="hidden" id="lp-site-contact-email" name="contactEmailRecipient" value="" />
+        <div class="lp-form__fields">
+          <div class="lp-form__field">
+            <label class="lp-form__label" for="field-name">お名前 <span class="lp-form__required">（必須）</span></label>
+            <input class="lp-form__input" type="text" id="field-name" name="name" autocomplete="name" placeholder="山田 太郎" required />
+          </div>
+          <div class="lp-form__field">
+            <label class="lp-form__label" for="field-phone">電話番号 <span class="lp-form__optional">（任意）</span></label>
+            <input class="lp-form__input" type="tel" id="field-phone" name="phone" autocomplete="tel" placeholder="090-1234-5678" />
+          </div>
+          <div class="lp-form__field">
+            <label class="lp-form__label" for="field-email">メールアドレス <span class="lp-form__required">（必須）</span></label>
+            <input class="lp-form__input" type="email" id="field-email" name="email" autocomplete="email" placeholder="example@email.com" required />
+          </div>
+          <div class="lp-form__field">
+            <label class="lp-form__label" for="field-message">ご相談内容 <span class="lp-form__required">（必須）</span></label>
+            <textarea class="lp-form__textarea" id="field-message" name="message" rows="6" placeholder="ご相談内容をご記入ください" required></textarea>
+          </div>
+        </div>
+        <div class="lp-form__submit">
+          <button class="lp-btn lp-btn--form" type="submit">内容を確認する</button>
+        </div>
+        <div class="lp-form__notes">
+          <p>※個人情報は厳重に管理いたします</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

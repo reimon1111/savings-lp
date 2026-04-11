@@ -1,0 +1,198 @@
+.lp-contact {
+  padding-block: 96px 120px;
+  background: linear-gradient(
+    132.35deg,
+    rgb(245, 243, 239) 0%,
+    rgb(248, 246, 242) 50%,
+    rgb(245, 243, 239) 100%
+  );
+}
+
+.lp-contact__wrap {
+  max-width: 768px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.lp-contact__card {
+  background: var(--color-white);
+  border-radius: var(--radius-form-card);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  padding: 64px 48px 56px;
+}
+
+.lp-contact__intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.lp-contact__title {
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: 0.0862px;
+  color: var(--color-navy);
+}
+
+.lp-contact__lead {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 27px;
+  letter-spacing: -0.2344px;
+  color: var(--color-text-muted);
+}
+
+.lp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lp-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.lp-form.is-confirm .lp-form__fields,
+.lp-form.is-confirm .lp-form__notes {
+  display: none;
+}
+
+.lp-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lp-form__label {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22.5px;
+  letter-spacing: -0.2344px;
+  color: var(--color-navy);
+}
+
+.lp-form__required {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-accent);
+  letter-spacing: -0.0762px;
+}
+
+.lp-form__optional {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--color-text-soft);
+  letter-spacing: -0.0762px;
+}
+
+.lp-form__input,
+.lp-form__textarea {
+  width: 100%;
+  min-height: 56.5px;
+  padding: 16px 20px;
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-input);
+  font-size: 15px;
+  font-family: inherit;
+  letter-spacing: -0.2344px;
+  color: var(--color-text);
+  background: var(--color-white);
+}
+
+.lp-form__input::placeholder,
+.lp-form__textarea::placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.lp-form__textarea {
+  min-height: 196px;
+  resize: vertical;
+  line-height: 27px;
+}
+
+.lp-form__submit {
+  margin-top: 8px;
+}
+
+.lp-form__notes {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.lp-form__notes p {
+  font-size: 13px;
+  line-height: 19.5px;
+  letter-spacing: -0.0762px;
+  color: var(--color-text-soft);
+}
+
+.lp-form__confirm {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  padding: 16px 18px;
+  background: rgba(248, 246, 242, 0.6);
+}
+
+.lp-form__confirm-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.lp-form__confirm-list {
+  margin: 12px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.lp-form__confirm-item dt {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.lp-form__confirm-item dd {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--color-text);
+}
+
+.lp-form__confirm-message {
+  line-height: 1.8;
+}
+
+.lp-form__toast {
+  border-radius: var(--radius-input);
+  padding: 14px 16px;
+  background: rgba(107, 162, 146, 0.12);
+  border: 1px solid rgba(107, 162, 146, 0.28);
+  color: var(--color-navy);
+  font-size: 14px;
+  text-align: center;
+}
+
+.lp-form__back {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .lp-contact {
+    padding-block: 64px 80px;
+  }
+
+  .lp-contact__card {
+    padding: 40px 24px 40px;
+  }
+}

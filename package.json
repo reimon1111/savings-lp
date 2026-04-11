@@ -1,0 +1,7 @@
+{
+  "name": "savings-lp",
+  "private": true,
+  "scripts": {
+    "dev": "bash scripts/serve-local.sh"
+  }
+}
