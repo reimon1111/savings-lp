@@ -167,7 +167,9 @@ function applySiteInfoToPage(site, meta) {
   if (hiddenRecipient) hiddenRecipient.value = contactEmail;
 
   const docTitle = `${name}${LP_SITE_DEFAULT.documentTitleSuffix}`;
-  document.title = docTitle;
+  if (document.body.dataset.lpPage !== "privacy-policy") {
+    document.title = docTitle;
+  }
 
   document.documentElement.dataset.lpSiteSource = source;
 }
@@ -665,6 +667,7 @@ function getFaqListMountEl() {
 async function initFaqMicrocms() {
   const listEl = getFaqListMountEl();
   if (!listEl) {
+    if (document.body.dataset.lpPage === "privacy-policy") return;
     console.error(
       "[faq] #lp-faq-list / [data-faq-list] が見つかりません。components/faq.html の読み込みに失敗しているか、" +
         "boot 完了前に参照している可能性があります。document.readyState と Network タブで components/faq.html を確認してください。",
@@ -1058,11 +1061,34 @@ function initHeroSlider() {
   start();
 }
 
+/**
+ * index.html は boot で非同期注入のため、初回読み込み時に #contact が無くブラウザのハッシュスクロールが効かない。
+ * パーツ挿入後に #contact へスクロールする。
+ */
+function scrollToContactHashIfNeeded() {
+  const hash = window.location.hash;
+  if (hash !== "#contact") return;
+  const el = document.getElementById("contact");
+  if (!el) return;
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+}
+
 async function boot() {
   try {
+    const isPrivacyPolicyPage = document.body.dataset.lpPage === "privacy-policy";
     await inject("#lp-header-root", "header", false);
+    if (isPrivacyPolicyPage) {
+      const brand = document.querySelector("[data-site-brand]");
+      if (brand) brand.setAttribute("href", "index.html");
+      const headerCta = document.querySelector(".lp-header .lp-btn--header");
+      if (headerCta) headerCta.setAttribute("href", "index.html#contact");
+    }
     const main = document.getElementById("lp-main");
-    if (main) {
+    if (main && !isPrivacyPolicyPage) {
       main.innerHTML = "";
       for (const name of PART_MAIN) {
         const html = await loadHtml(`components/${name}.html`);
@@ -1071,7 +1097,7 @@ async function boot() {
     }
     await inject("#lp-footer-root", "footer", false);
     await initSiteMicrocms();
-    if (!document.getElementById("lp-faq-list")) {
+    if (!isPrivacyPolicyPage && !document.getElementById("lp-faq-list")) {
       console.error(
         "[lp] FAQ マウント（#lp-faq-list）が DOM にありません。components/faq.html が 404 になっていないか、" +
           "index.html を lp フォルダをルートとするローカルサーバーから開いているか確認してください。",
@@ -1082,6 +1108,9 @@ async function boot() {
     initHeroSlider();
     initExamplesMicrocms();
     initFaqMicrocms();
+    if (!isPrivacyPolicyPage) {
+      scrollToContactHashIfNeeded();
+    }
   } catch (err) {
     console.error(err);
     const main = document.getElementById("lp-main");

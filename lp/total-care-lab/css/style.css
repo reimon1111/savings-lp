@@ -853,6 +853,19 @@
   text-underline-offset: 3px;
 }
 
+.tcl-page .tcl-footer__legal {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.tcl-page .tcl-footer__legal-link {
+  font-size: 0.65rem;
+  line-height: 1.5;
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .tcl-page .tcl-footer__copy {
   margin: 3rem 0 0;
   text-align: center;
