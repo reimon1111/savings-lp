@@ -1,0 +1,945 @@
+/**
+ * Total Care Lab — Figma「LPデザイン作成」(node 128:2) ベース
+ * すべて .tcl-page 配下にスコープ
+ */
+
+.tcl-page {
+  --tcl-color-text: #3d4035;
+  --tcl-color-muted: #6b7261;
+  --tcl-color-accent: #6b7f5c;
+  --tcl-color-olive: #4b5f36;
+  --tcl-color-menu-bg: #9caf88;
+  --tcl-color-bg-warm: #f5f4f0;
+  --tcl-color-bg-access: #e8ede3;
+  --tcl-color-footer: #3d4035;
+  --tcl-color-border: #d1d5dc;
+  --tcl-color-header-border: #f3f4f6;
+  --tcl-color-nav: #364153;
+  --tcl-color-white-95: rgba(255, 255, 255, 0.95);
+  --tcl-shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --tcl-shadow-menu: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  --tcl-shadow-portrait: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --tcl-max-narrow: 48rem;
+  --tcl-max-menu: 64rem;
+  --tcl-max-wide: 72rem;
+  --tcl-max-form: 42rem;
+
+  box-sizing: border-box;
+  margin: 0;
+  color: var(--tcl-color-text);
+  background: #fff;
+  font-family: "Noto Sans JP", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding-top: 4.3125rem;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.tcl-page *,
+.tcl-page *::before,
+.tcl-page *::after {
+  box-sizing: inherit;
+}
+
+.tcl-page img,
+.tcl-page picture,
+.tcl-page video,
+.tcl-page canvas,
+.tcl-page svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.tcl-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tcl-page a:hover {
+  opacity: 0.85;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ----- Header ----- */
+.tcl-page .tcl-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+}
+
+.tcl-page .tcl-header__bar {
+  width: 100%;
+  max-width: 100%;
+  background: var(--tcl-color-white-95);
+  border-bottom: 1px solid var(--tcl-color-header-border);
+  overflow-x: clip;
+}
+
+.tcl-page .tcl-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: min(calc(var(--tcl-max-wide) + 10rem), 100%);
+  min-width: 0;
+  margin-inline: auto;
+  padding: 1rem 1.5rem;
+  min-height: 4.25rem;
+  box-sizing: border-box;
+}
+
+.tcl-page .tcl-header__logo {
+  display: block;
+  line-height: 0;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.tcl-page .tcl-header__logo img {
+  display: block;
+  height: 2rem;
+  width: auto;
+  max-width: 100%;
+  max-height: 2.75rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (min-width: 600px) {
+  .tcl-page .tcl-header__logo {
+    flex-shrink: 0;
+  }
+
+  .tcl-page .tcl-header__logo img {
+    height: 2.25rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .tcl-page .tcl-header__logo {
+    max-width: calc(100% - 3.25rem);
+  }
+}
+
+.tcl-page .tcl-header__menu-btn {
+  display: none;
+  position: relative;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--tcl-color-nav);
+}
+
+.tcl-page .tcl-header__menu-btn-lines::before,
+.tcl-page .tcl-header__menu-btn-lines::after,
+.tcl-page .tcl-header__menu-btn-lines {
+  display: block;
+  width: 1.25rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  margin-inline: auto;
+}
+
+.tcl-page .tcl-header__menu-btn-lines {
+  position: relative;
+}
+
+.tcl-page .tcl-header__menu-btn-lines::before,
+.tcl-page .tcl-header__menu-btn-lines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.tcl-page .tcl-header__menu-btn-lines::before {
+  top: -6px;
+}
+
+.tcl-page .tcl-header__menu-btn-lines::after {
+  top: 6px;
+}
+
+.tcl-page .tcl-nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tcl-page .tcl-nav__link {
+  font-family: "Cormorant Garamond", "Noto Serif JP", serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.044em;
+  color: var(--tcl-color-nav);
+}
+
+/* ----- Layout helpers ----- */
+.tcl-page .tcl-main {
+  display: block;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.tcl-page .tcl-section__inner {
+  width: 100%;
+  max-width: var(--tcl-max-wide);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 6vw, 4.875rem);
+}
+
+.tcl-page .tcl-section__inner--narrow {
+  max-width: var(--tcl-max-narrow);
+}
+
+.tcl-page .tcl-section__inner--menu {
+  max-width: var(--tcl-max-menu);
+}
+
+.tcl-page .tcl-section__inner--wide {
+  max-width: var(--tcl-max-wide);
+}
+
+.tcl-page .tcl-section__inner--concept {
+  position: relative;
+  z-index: 1;
+  max-width: 56rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 8vw, 8rem);
+}
+
+.tcl-page .tcl-section__inner--form {
+  max-width: var(--tcl-max-form);
+}
+
+.tcl-page .tcl-section-title {
+  margin: 0;
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--tcl-color-text);
+}
+
+.tcl-page .tcl-section-title--on-dark {
+  color: #fff;
+}
+
+.tcl-page .tcl-section-subtitle {
+  margin: 1rem 0 0;
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  color: var(--tcl-color-muted);
+}
+
+.tcl-page .tcl-section-subtitle--on-dark {
+  color: var(--tcl-color-muted);
+}
+
+.tcl-page .tcl-section-subtitle--on-menu {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ----- First View ----- */
+.tcl-page .tcl-section--first-view {
+  position: relative;
+  min-height: 28rem;
+  display: grid;
+  place-items: center;
+  padding: clamp(4rem, 12vw, 8rem) 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .tcl-page .tcl-section--first-view {
+    min-height: 44.9375rem;
+  }
+}
+
+.tcl-page .tcl-first-view__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.tcl-page .tcl-first-view__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tcl-page .tcl-first-view__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.tcl-page .tcl-first-view__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 53rem;
+}
+
+.tcl-page .tcl-first-view__title {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 400;
+  font-size: clamp(1.35rem, 3.2vw, 2.5rem);
+  line-height: 1.35;
+  letter-spacing: 0.112em;
+  color: var(--tcl-color-text);
+}
+
+@media (min-width: 768px) {
+  .tcl-page .tcl-first-view__title {
+    line-height: 2.1;
+  }
+}
+
+.tcl-page .tcl-first-view__lead {
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+  font-family: "Noto Serif JP", serif;
+  font-size: 0.95rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-text);
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
+.tcl-page .tcl-first-view__lead p {
+  margin: 0;
+}
+
+/* ----- About ----- */
+.tcl-page .tcl-section--about {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background: #fff;
+}
+
+.tcl-page .tcl-about__body {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 1rem;
+  line-height: 2.09;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-muted);
+}
+
+.tcl-page .tcl-about__body p {
+  margin: 0;
+}
+
+/* ----- Concept ----- */
+.tcl-page .tcl-section--concept {
+  position: relative;
+  padding-block: clamp(4rem, 10vw, 8rem);
+  overflow: hidden;
+  color: #fff;
+}
+
+.tcl-page .tcl-concept__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.tcl-page .tcl-concept__tint {
+  position: absolute;
+  inset: 0;
+  background: var(--tcl-color-olive);
+  z-index: 0;
+}
+
+.tcl-page .tcl-concept__bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.tcl-page .tcl-concept__line {
+  margin: 0;
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.tcl-page .tcl-concept__line + .tcl-concept__line {
+  margin-top: 0.5rem;
+}
+
+.tcl-page .tcl-section--concept .tcl-section-title {
+  margin-bottom: 0;
+}
+
+.tcl-page .tcl-section--concept .tcl-section-subtitle {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+/* ----- Point ----- */
+.tcl-page .tcl-section--point {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background: #fff;
+}
+
+.tcl-page .tcl-point-rows {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 8vw, 6rem);
+}
+
+.tcl-page .tcl-point-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .tcl-page .tcl-point-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .tcl-page .tcl-point-row--reverse .tcl-point-row__figure {
+    order: -1;
+  }
+}
+
+/* スマホ：講師派遣行は「テキスト → 画像」の順（PC は画像左・テキスト右のまま） */
+@media (max-width: 899px) {
+  .tcl-page .tcl-point-row--reverse .tcl-point-row__text {
+    order: -1;
+  }
+}
+
+.tcl-page .tcl-point-row__title {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--tcl-color-text);
+}
+
+.tcl-page .tcl-point-row__desc {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-muted);
+}
+
+.tcl-page .tcl-point-row__desc p {
+  margin: 0 0 0.5rem;
+}
+
+.tcl-page .tcl-point-row__desc p:last-child {
+  margin-bottom: 0;
+}
+
+.tcl-page .tcl-point-row__figure {
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--tcl-shadow-card);
+  aspect-ratio: 552 / 320;
+  background: #e5e7eb;
+}
+
+.tcl-page .tcl-point-row__figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ----- Service cards strip ----- */
+.tcl-page .tcl-section--service-cards {
+  padding-block: clamp(3rem, 6vw, 4rem);
+  background: var(--tcl-color-bg-warm);
+}
+
+.tcl-page .tcl-service-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .tcl-page .tcl-service-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.tcl-page .tcl-service-card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  min-height: 17.5rem;
+  box-shadow: var(--tcl-shadow-card);
+  background: #ccc;
+}
+
+.tcl-page .tcl-service-card__media {
+  position: absolute;
+  inset: 0;
+}
+
+.tcl-page .tcl-service-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tcl-page .tcl-service-card__media--crop {
+  overflow: hidden;
+}
+
+.tcl-page .tcl-service-card__img--pos {
+  width: 210%;
+  max-width: none;
+  height: 153%;
+  object-fit: cover;
+  transform: translate(-28%, -12%);
+}
+
+.tcl-page .tcl-service-card__overlay {
+  position: absolute;
+  inset: 0;
+  padding: 1.5rem;
+  background-image:
+    linear-gradient(90deg, rgba(75, 95, 54, 0.6) 0%, rgba(75, 95, 54, 0.6) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
+  color: #fff;
+  display: flex;
+}
+
+.tcl-page .tcl-service-card--center .tcl-service-card__overlay {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tcl-page .tcl-service-card__overlay--center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tcl-page .tcl-service-card__label {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.95;
+  letter-spacing: 0.104em;
+}
+
+.tcl-page .tcl-service-card__name {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+.tcl-page .tcl-service-card__note {
+  margin: 0.75rem 0 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  max-width: 18rem;
+  opacity: 0.95;
+  text-align: left;
+}
+
+/* ----- Menu ----- */
+.tcl-page .tcl-section--menu {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background: var(--tcl-color-menu-bg);
+}
+
+.tcl-page .tcl-menu-list {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tcl-page .tcl-menu-item {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: var(--tcl-shadow-menu);
+}
+
+.tcl-page .tcl-menu-item__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+}
+
+.tcl-page .tcl-menu-item__title {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--tcl-color-text);
+}
+
+.tcl-page .tcl-menu-item__title--solo {
+  margin-bottom: 0.5rem;
+}
+
+.tcl-page .tcl-menu-item__price {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--tcl-color-accent);
+  white-space: nowrap;
+}
+
+.tcl-page .tcl-menu-item__desc {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-muted);
+}
+
+/* ----- Message ----- */
+.tcl-page .tcl-section--message {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background: var(--tcl-color-bg-warm);
+}
+
+.tcl-page .tcl-message__layout {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .tcl-page .tcl-message__layout {
+    grid-template-columns: minmax(240px, 380px) 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+.tcl-page .tcl-message__photo {
+  justify-self: center;
+  width: min(100%, 20rem);
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: var(--tcl-shadow-portrait);
+  aspect-ratio: 1;
+  background: #ddd;
+}
+
+.tcl-page .tcl-message__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tcl-page .tcl-message__heading {
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  font-weight: 300;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--tcl-color-text);
+}
+
+.tcl-page .tcl-message__body {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 2.1;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-muted);
+}
+
+.tcl-page .tcl-message__body p {
+  margin: 0 0 0.75rem;
+}
+
+.tcl-page .tcl-message__body p:last-child {
+  margin-bottom: 0;
+}
+
+.tcl-page .tcl-message__sign {
+  margin: 2rem 0 0;
+  font-family: "Cormorant Garamond", "Noto Sans JP", serif;
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--tcl-color-text);
+}
+
+.tcl-page .tcl-message__role {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-muted);
+}
+
+/* ----- Access ----- */
+.tcl-page .tcl-section--access {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  background: var(--tcl-color-bg-access);
+}
+
+.tcl-page .tcl-access__body {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.tcl-page .tcl-access__address {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-muted);
+}
+
+.tcl-page .tcl-access__notes {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  color: var(--tcl-color-muted);
+}
+
+.tcl-page .tcl-access__notes p {
+  margin: 0;
+}
+
+/* Contact は ../styles/form.css（家計LPと同一）を使用 */
+
+/* ----- Footer ----- */
+.tcl-page .tcl-footer {
+  background: #fff;
+  color: #000;
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid #e5e7eb;
+}
+
+.tcl-page .tcl-footer__inner {
+  max-width: var(--tcl-max-wide);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 6vw, 4.875rem);
+}
+
+.tcl-page .tcl-footer__brand {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  line-height: 0;
+  text-align: center;
+}
+
+.tcl-page .tcl-footer__brand img {
+  display: block;
+  height: 2rem;
+  width: auto;
+  max-height: 2.5rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 600px) {
+  .tcl-page .tcl-footer__brand img {
+    height: 2.25rem;
+  }
+}
+
+.tcl-page .tcl-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.75rem;
+  margin-top: 2rem;
+}
+
+.tcl-page .tcl-footer__nav a {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.068em;
+  color: #000;
+}
+
+.tcl-page .tcl-footer__divider {
+  margin-top: 2.5rem;
+  border-top: 1px solid #d1d5dc;
+}
+
+.tcl-page .tcl-footer__related {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.tcl-page .tcl-footer__related-label {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #000;
+}
+
+.tcl-page .tcl-footer__related-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tcl-page .tcl-footer__copy {
+  margin: 3rem 0 0;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #000;
+}
+
+/* ----- Mobile nav ----- */
+@media (max-width: 899px) {
+  .tcl-page .tcl-header__menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tcl-page .tcl-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: var(--tcl-color-white-95);
+    border-bottom: 1px solid var(--tcl-color-header-border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .tcl-page .tcl-header--open .tcl-nav {
+    max-height: 24rem;
+  }
+
+  .tcl-page .tcl-nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.5rem 1.25rem;
+    gap: 0;
+  }
+
+  .tcl-page .tcl-nav__list li {
+    border-bottom: 1px solid var(--tcl-color-header-border);
+  }
+
+  .tcl-page .tcl-nav__list li:last-child {
+    border-bottom: 0;
+  }
+
+  .tcl-page .tcl-nav__link {
+    display: block;
+    padding: 0.75rem 0;
+  }
+}
+
+@media (min-width: 900px) {
+  .tcl-page .tcl-header__menu-btn {
+    display: none;
+  }
+
+  .tcl-page .tcl-nav {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+  }
+}
+
+.tcl-page .tcl-header--open .tcl-header__menu-btn-lines {
+  background: transparent;
+}
+
+.tcl-page .tcl-header--open .tcl-header__menu-btn-lines::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.tcl-page .tcl-header--open .tcl-header__menu-btn-lines::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* アンカー時に固定ヘッダーと重ならないよう余白 */
+.tcl-page .tcl-section[id],
+.tcl-page .tcl-footer {
+  scroll-margin-top: 5.5rem;
+}
