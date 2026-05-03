@@ -40,8 +40,8 @@
   /** 以下、lp/js/main.js の initForm / microCMS site 取得と同等（タイトル変更などページ全体への副作用は除く） */
 
   const LP_SITE_DEFAULT = {
-    siteName: "家計の見直し相談室",
-    documentTitleSuffix: "｜ご家庭の固定費をまとめてご相談",
+    siteName: "セルフグロウ",
+    documentTitleSuffix: "｜10年で2,000人のカウンセリング実績",
     contactEmail: "",
   };
 
@@ -55,7 +55,7 @@
   }
 
   function logSiteFallback(reason, detail) {
-    const lines = ["[site] FALLBACK（トータル・ケア・ラボ：問い合わせ送信先メールのみ）", `  理由: ${reason}`];
+    const lines = ["[site] FALLBACK（セルフグロウ：問い合わせ送信先メールのみ）", `  理由: ${reason}`];
     if (detail) lines.push(`  詳細: ${detail}`);
     console.error(lines.join("\n"));
   }

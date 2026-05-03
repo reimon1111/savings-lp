@@ -1,5 +1,5 @@
 /**
- * Total Care Lab — Figma「LPデザイン作成」(node 128:2) ベース
+ * Self Grow — Figma「LPデザイン作成」(node 128:2) ベース
  * すべて .tcl-page 配下にスコープ
  */
 
@@ -103,20 +103,30 @@
 }
 
 .tcl-page .tcl-header__logo {
-  display: block;
-  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  line-height: 1;
   flex-shrink: 1;
   min-width: 0;
 }
 
-.tcl-page .tcl-header__logo img {
+.tcl-page .tcl-header__logo-mark {
   display: block;
-  height: 2rem;
-  width: auto;
+  width: 2.4rem;
+  height: 2.4rem;
   max-width: 100%;
-  max-height: 2.75rem;
   object-fit: contain;
-  object-position: left center;
+  flex: 0 0 auto;
+}
+
+.tcl-page .tcl-header__logo-text {
+  font-family: "BIZ UDPGothic", "Noto Sans JP", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 3.4vw, 1.45rem);
+  letter-spacing: 0.04em;
+  color: #3d4035;
+  white-space: nowrap;
 }
 
 @media (min-width: 600px) {
@@ -124,8 +134,9 @@
     flex-shrink: 0;
   }
 
-  .tcl-page .tcl-header__logo img {
-    height: 2.25rem;
+  .tcl-page .tcl-header__logo-mark {
+    width: 2.75rem;
+    height: 2.75rem;
   }
 }
 
@@ -788,24 +799,37 @@
 }
 
 .tcl-page .tcl-footer__brand {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
   margin: 0 auto;
   width: fit-content;
-  line-height: 0;
+  line-height: 1;
   text-align: center;
 }
 
-.tcl-page .tcl-footer__brand img {
+.tcl-page .tcl-footer__brand-mark {
   display: block;
-  height: 2rem;
-  width: auto;
-  max-height: 2.5rem;
-  margin-inline: auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.tcl-page .tcl-footer__brand-text {
+  font-family: "BIZ UDPGothic", "Noto Sans JP", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 3.4vw, 1.45rem);
+  letter-spacing: 0.04em;
+  color: #3d4035;
+  white-space: nowrap;
 }
 
 @media (min-width: 600px) {
-  .tcl-page .tcl-footer__brand img {
-    height: 2.25rem;
+  .tcl-page .tcl-footer__brand-mark {
+    width: 2.75rem;
+    height: 2.75rem;
   }
 }
 

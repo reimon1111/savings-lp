@@ -311,6 +311,7 @@ function renderExamplesFallback(gridEl) {
   const tpl = document.getElementById("lp-examples-fallback");
   if (tpl && tpl.content) {
     gridEl.replaceChildren(tpl.content.cloneNode(true));
+    normalizeLpComponentImages();
     return;
   }
   gridEl.innerHTML = `<div class="lp-example-card lp-card-soft"><div class="lp-example-card__body"><p>見直しの一例を準備中です。</p></div></div>`;
@@ -585,6 +586,7 @@ function renderFaqFallback(listEl) {
   const tpl = document.getElementById("lp-faq-fallback");
   if (tpl && tpl.content) {
     listEl.replaceChildren(tpl.content.cloneNode(true));
+    normalizeLpComponentImages();
     return;
   }
   const p = document.createElement("p");
@@ -607,7 +609,7 @@ function renderFaqFromMicrocms(listEl, items) {
   }
 
   const frag = document.createDocumentFragment();
-  const iconSrc = "assets/icons/icon-plus.svg";
+  const iconSrc = resolveLpAsset("assets/icons/icon-plus.svg");
 
   items.forEach((item, idx) => {
     const q = pickFaqQuestion(item);
@@ -1077,15 +1079,36 @@ function scrollToContactHashIfNeeded() {
   });
 }
 
+function normalizeLpComponentLinks() {
+  const linkTargets = {
+    privacy: "privacy-policy.html",
+    main: "index.html",
+    "budget-contact": "budget-review/#contact",
+  };
+
+  document.querySelectorAll("[data-lp-link]").forEach((link) => {
+    const key = link.getAttribute("data-lp-link");
+    const target = linkTargets[key];
+    if (target) link.setAttribute("href", resolveLpAsset(target));
+  });
+}
+
+function normalizeLpComponentImages() {
+  document.querySelectorAll('img[src^="assets/"]').forEach((img) => {
+    const src = img.getAttribute("src");
+    if (src) img.setAttribute("src", resolveLpAsset(src));
+  });
+}
+
 async function boot() {
   try {
     const isPrivacyPolicyPage = document.body.dataset.lpPage === "privacy-policy";
     await inject("#lp-header-root", "header", false);
     if (isPrivacyPolicyPage) {
       const brand = document.querySelector("[data-site-brand]");
-      if (brand) brand.setAttribute("href", "index.html");
+      if (brand) brand.setAttribute("href", resolveLpAsset("index.html"));
       const headerCta = document.querySelector(".lp-header .lp-btn--header");
-      if (headerCta) headerCta.setAttribute("href", "index.html#contact");
+      if (headerCta) headerCta.setAttribute("href", resolveLpAsset("budget-review/#contact"));
     }
     const main = document.getElementById("lp-main");
     if (main && !isPrivacyPolicyPage) {
@@ -1096,6 +1119,8 @@ async function boot() {
       }
     }
     await inject("#lp-footer-root", "footer", false);
+    normalizeLpComponentLinks();
+    normalizeLpComponentImages();
     await initSiteMicrocms();
     if (!isPrivacyPolicyPage && !document.getElementById("lp-faq-list")) {
       console.error(
